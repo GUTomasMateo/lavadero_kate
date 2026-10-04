@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Control Diario - Lavadero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Evita zoom automático en Safari/iOS al tocar inputs */
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen pb-16 font-sans antialiased selection:bg-sky-500 selection:text-slate-950">
+    <div class="max-w-4xl mx-auto px-3.5 sm:px-6 py-4 sm:py-8">
+
+      <!-- Encabezado Móvil Optimizado -->
+      <header class="flex items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-5">
+        <div>
+          <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-sky-400">Control Lavadero</h1>
+          <p class="text-xs text-slate-400">Registro diario en GitHub</p>
+        </div>
+        <button
+          type="button"
+          onclick="toggleConfig()"
+          class="shrink-0 text-xs bg-slate-900 active:bg-slate-800 text-slate-300 px-3 py-2.5 rounded-xl border border-slate-700/80 transition"
+        >
+          ⚙️ GitHub
+        </button>
+      </header>
+
+      <!-- Panel de Configuración GitHub -->
+      <div id="configPanel" class="hidden bg-slate-900 border border-slate-700 p-4 sm:p-5 rounded-2xl mb-5 shadow-2xl">
+        <h3 class="font-bold text-sky-300 text-sm mb-1">Configurar Acceso a GitHub</h3>
+        <p class="text-xs text-slate-400 mb-3">Se guarda en el teléfono para sincronizar automáticamente.</p>
+        <div class="space-y-2.5 text-sm">
+          <input
+            id="ghUser"
+            type="text"
+            placeholder="Usuario GitHub"
+            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 focus:border-sky-500 outline-none"
+          />
+          <input
+            id="ghRepo"
+            type="text"
+            placeholder="Nombre Repositorio"
+            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 focus:border-sky-500 outline-none"
+          />
+          <input
+            id="ghToken"
+            type="password"
+            placeholder="GitHub Token (PAT)"
+            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 focus:border-sky-500 outline-none"
+          />
+        </div>
+        <div class="flex justify-end gap-2 mt-3">
+          <button
+            type="button"
+            onclick="guardarConfig()"
+            class="w-full sm:w-auto bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-slate-950 font-bold text-xs py-3 px-5 rounded-xl transition"
+          >
+            Guardar Configuración
+          </button>
+        </div>
+      </div>
+
+      <!-- Métricas Resumen -->
+      <section class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-5">
+        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Total Hoy</span>
+          <p id="totalHoy" class="text-lg sm:text-xl font-bold text-emerald-400 mt-0.5">$0</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Vehículos</span>
+          <p id="cantVehiculosHoy" class="text-lg sm:text-xl font-bold text-sky-400 mt-0.5">0</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Lavados</span>
+          <p id="ingresosLavados" class="text-base sm:text-lg font-semibold text-slate-200 mt-0.5">$0</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Adicionales</span>
+          <p id="ingresosAdicionales" class="text-base sm:text-lg font-semibold text-slate-200 mt-0.5">$0</p>
+        </div>
+      </section>
+
+      <!-- Formulario de Registro Táctil -->
+      <section class="bg-slate-900/70 border border-slate-800/80 rounded-2xl p-4 sm:p-6 mb-7 shadow-lg">
+        <h2 class="text-base sm:text-lg font-semibold text-slate-100 mb-3.5">Cargar Trabajo</h2>
+        <form id="formRegistro" onsubmit="registrarTrabajo(event)" class="space-y-3.5">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="sm:col-span-1">
+              <label class="block text-xs font-medium text-slate-300 mb-1">Vehículo / Patente</label>
+              <input
+                required
+                id="vehiculo"
+                type="text"
+                placeholder="Ej: Hilux - AA123BB"
+                class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:border-sky-500 outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Lavado</label>
+              <select
+                id="tipoLavado"
+                class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:border-sky-500 outline-none"
+              >
+                <option value="Sin Lavado">Sin Lavado (Solo Adicional)</option>
+                <option value="Lavado Express" selected>Lavado Express</option>
+                <option value="Lavado Premium / Detailing">Lavado Premium / Detailing</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Monto Lavado ($)</label>
+              <input
+                required
+                id="montoLavado"
+                type="number"
+                inputmode="numeric"
+                step="any"
+                min="0"
+                value="0"
+                class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:border-sky-500 outline-none font-semibold text-sky-400"
+              />
+            </div>
+          </div>
+
+          <!-- Selección Múltiple con botones táctiles -->
+          <div class="border border-slate-700/70 bg-slate-950/60 p-3.5 sm:p-4 rounded-xl">
+            <label class="block text-xs font-semibold text-sky-400 uppercase tracking-wider mb-1">
+              Adicionales y Tratamientos
+            </label>
+            <p class="text-[11px] text-slate-400 mb-3">Toca los servicios que se hicieron:</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2" id="contenedorOpcionesAdicionales">
+              <!-- Checkboxes generados vía JS -->
+            </div>
+
+            <!-- Precios individuales para móviles -->
+            <div id="listaPreciosAdicionales" class="mt-3.5 pt-3.5 border-t border-slate-800 space-y-2 hidden">
+              <span class="text-xs text-slate-300 font-medium">Montos de los adicionales marcados:</span>
+              <div id="inputsAdicionales" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Forma de Pago</label>
+              <select
+                id="metodoPago"
+                class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:border-sky-500 outline-none"
+              >
+                <option value="Efectivo" selected>Efectivo</option>
+                <option value="Transferencia">Transferencia</option>
+                <option value="Tarjeta">Tarjeta Débito / Crédito</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Observaciones</label>
+              <input
+                id="notas"
+                type="text"
+                placeholder="Opcional: detalles, horarios..."
+                class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:border-sky-500 outline-none"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            id="btnGuardar"
+            class="w-full bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-slate-950 font-bold py-3.5 px-4 rounded-xl text-sm transition shadow-lg mt-2 cursor-pointer"
+          >
+            + Guardar Registro
+          </button>
+        </form>
+      </section>
+
+      <!-- Historial de Trabajos -->
+      <section>
+        <div class="flex items-center justify-between mb-3 px-1">
+          <div>
+            <h2 class="text-base sm:text-lg font-semibold text-slate-100">Historial</h2>
+            <span id="syncStatus" class="text-[11px] text-emerald-400">● Listo</span>
+          </div>
+          <span id="infoPaginaHeader" class="text-xs text-slate-400"></span>
+        </div>
+
+        <!-- 1. VISTA MÓVIL (Cards) - Se ve solo en celulares (< 640px) -->
+        <div id="contenedorTarjetasMovil" class="sm:hidden space-y-3">
+          <!-- Renderizado dinámico de tarjetas -->
+        </div>
+
+        <!-- 2. VISTA ESCRITORIO/TABLET (Tabla tradicional) - Se ve en >= 640px -->
+        <div class="hidden sm:block overflow-x-auto border border-slate-800 rounded-2xl bg-slate-900/40">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-800/80 text-slate-300 border-b border-slate-800">
+              <tr>
+                <th class="py-3 px-4">Fecha / Hora</th>
+                <th class="py-3 px-4">Vehículo</th>
+                <th class="py-3 px-4">Lavado</th>
+                <th class="py-3 px-4">Adicionales</th>
+                <th class="py-3 px-4">Total</th>
+                <th class="py-3 px-4">Pago</th>
+                <th class="py-3 px-4 text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="listaTrabajosDesktop" class="divide-y divide-slate-800">
+              <!-- Renderizado dinámico en tabla -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Barra de Paginación Táctil -->
+        <div id="controlesPaginacion" class="flex items-center justify-between gap-2 mt-4 pt-2">
+          <button
+            type="button"
+            id="btnAnt"
+            onclick="cambiarPagina(-1)"
+            class="flex-1 sm:flex-none bg-slate-900 active:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none text-slate-200 py-3 sm:py-2 px-4 rounded-xl border border-slate-800 text-xs font-semibold transition"
+          >
+            ← Anterior
+          </button>
+          
+          <span id="infoPagina" class="text-xs text-slate-400 text-center px-2">Página 1</span>
+
+          <button
+            type="button"
+            id="btnSig"
+            onclick="cambiarPagina(1)"
+            class="flex-1 sm:flex-none bg-slate-900 active:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none text-slate-200 py-3 sm:py-2 px-4 rounded-xl border border-slate-800 text-xs font-semibold transition"
+          >
+            Siguiente →
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <script>
+      const SERVICIOS_ADICIONALES = [
+        "Sellado de cubiertas",
+        "Abrillantado premium",
+        "Tratamiento acrilico",
+        "Tratamiento ceramico",
+        "Limpieza de tapizado (unicamente asientos)",
+        "Limpieza de sarro de cristales",
+        "Sellado de parabrisas",
+        "Sellado de todos los cristales",
+        "Encerado en pasta soft 99",
+        "Lavado de motor",
+        "Pulido de opticas",
+        "Servicio de busqueda"
+      ];
+
+      const ITEMS_POR_PAGINA = 10;
+      let paginaActual = 1;
+      let registros = JSON.parse(localStorage.getItem('lavadero_registros')) || [];
+      let fileSha = null;
+
+      function init() {
+        generarCheckboxesAdicionales();
+        cargarConfig();
+        render();
+        sincronizarConGitHub(false);
+      }
+
+      function generarCheckboxesAdicionales() {
+        const contenedor = document.getElementById('contenedorOpcionesAdicionales');
+        contenedor.innerHTML = SERVICIOS_ADICIONALES.map((adic, idx) => `
+          <label class="flex items-center gap-3 bg-slate-900/90 active:bg-slate-800 p-3 rounded-xl border border-slate-800 cursor-pointer select-none transition">
+            <input
+              type="checkbox"
+              value="${adic}"
+              id="chk_${idx}"
+              onchange="actualizarInputsAdicionales()"
+              class="w-5 h-5 text-sky-500 rounded bg-slate-950 border-slate-700 focus:ring-0 focus:ring-offset-0"
+            />
+            <span class="text-xs font-medium text-slate-200">${adic}</span>
+          </label>
+        `).join('');
+      }
+
+      function actualizarInputsAdicionales() {
+        const checks = document.querySelectorAll('#contenedorOpcionesAdicionales input[type="checkbox"]:checked');
+        const contPrecios = document.getElementById('listaPreciosAdicionales');
+        const inputsAdic = document.getElementById('inputsAdicionales');
+
+        if (checks.length === 0) {
+          contPrecios.classList.add('hidden');
+          inputsAdic.innerHTML = '';
+          return;
+        }
+
+        contPrecios.classList.remove('hidden');
+
+        const valoresPrevios = {};
+        inputsAdic.querySelectorAll('input').forEach(inp => {
+          valoresPrevios[inp.dataset.servicio] = inp.value;
+        });
+
+        inputsAdic.innerHTML = '';
+        checks.forEach(chk => {
+          const nombre = chk.value;
+          const valorActual = valoresPrevios[nombre] !== undefined ? valoresPrevios[nombre] : '0';
+
+          const wrapper = document.createElement('div');
+          wrapper.className = 'flex items-center justify-between gap-2 bg-slate-900 p-2.5 rounded-xl border border-slate-800';
+          wrapper.innerHTML = `
+            <span class="text-xs text-slate-300 truncate pr-2">${nombre}</span>
+            <div class="flex items-center gap-1 shrink-0">
+              <span class="text-xs text-slate-400 font-semibold">$</span>
+              <input
+                type="number"
+                inputmode="numeric"
+                step="any"
+                min="0"
+                value="${valorActual}"
+                data-servicio="${nombre}"
+                class="w-24 bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-xs text-right text-purple-300 font-semibold focus:border-sky-500 outline-none"
+              />
+            </div>
+          `;
+          inputsAdic.appendChild(wrapper);
+        });
+      }
+
+      function toggleConfig() {
+        document.getElementById('configPanel').classList.toggle('hidden');
+      }
+
+      function cargarConfig() {
+        document.getElementById('ghUser').value = localStorage.getItem('gh_user') || '';
+        document.getElementById('ghRepo').value = localStorage.getItem('gh_repo') || '';
+        document.getElementById('ghToken').value = localStorage.getItem('gh_token') || '';
+      }
+
+      function guardarConfig() {
+        localStorage.setItem('gh_user', document.getElementById('ghUser').value.trim());
+        localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
+        localStorage.setItem('gh_token', document.getElementById('ghToken').value.trim());
+        toggleConfig();
+        sincronizarConGitHub(true);
+      }
+
+      async function sincronizarConGitHub(forzarSubida = false) {
+        const user = localStorage.getItem('gh_user');
+        const repo = localStorage.getItem('gh_repo');
+        const token = localStorage.getItem('gh_token');
+        const status = document.getElementById('syncStatus');
+
+        if (!user || !repo || !token) {
+          status.textContent = '○ Modo Local (Falta Token)';
+          status.className = 'text-[11px] text-amber-400';
+          return;
+        }
+
+        status.textContent = '⟳ Conectando...';
+        status.className = 'text-[11px] text-sky-400';
+
+        const url = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
+
+        try {
+          const getRes = await fetch(url, {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github.v3+json'
+            }
+          });
+
+          if (getRes.status === 200) {
+            const data = await getRes.json();
+            fileSha = data.sha;
+            const contenidoRemoto = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+
+            if (!forzarSubida) {
+              registros = contenidoRemoto;
+              localStorage.setItem('lavadero_registros', JSON.stringify(registros));
+              render();
+            }
+          }
+
+          if (forzarSubida) {
+            const jsonString = JSON.stringify(registros, null, 2);
+            const contentBase64 = btoa(unescape(encodeURIComponent(jsonString)));
+
+            const body = {
+              message: `Actualización: ${new Date().toLocaleString()}`,
+              content: contentBase64,
+              sha: fileSha || undefined
+            };
+
+            const putRes = await fetch(url, {
+              method: 'PUT',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(body)
+            });
+
+            if (putRes.ok) {
+              const resData = await putRes.json();
+              fileSha = resData.content.sha;
+              status.textContent = '● Guardado en GitHub';
+              status.className = 'text-[11px] text-emerald-400';
+            } else {
+              throw new Error('Fallo al actualizar');
+            }
+          } else {
+            status.textContent = '● Conectado a GitHub';
+            status.className = 'text-[11px] text-emerald-400';
+          }
+        } catch (err) {
+          console.error(err);
+          status.textContent = '⚠️ Guardado Local (Sin red)';
+          status.className = 'text-[11px] text-amber-400';
+        }
+      }
+
+      function registrarTrabajo(e) {
+        e.preventDefault();
+
+        const mLavado = parseFloat(document.getElementById('montoLavado').value) || 0;
+        const adicionalesInputs = document.querySelectorAll('#inputsAdicionales input');
+        const adicionalesSeleccionados = [];
+        let totalAdicionales = 0;
+
+        adicionalesInputs.forEach(inp => {
+          const monto = parseFloat(inp.value) || 0;
+          adicionalesSeleccionados.push({
+            nombre: inp.dataset.servicio,
+            monto: monto
+          });
+          totalAdicionales += monto;
+        });
+
+        const item = {
+          id: Date.now(),
+          fecha: new Date().toISOString(),
+          hora: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          vehiculo: document.getElementById('vehiculo').value.trim(),
+          tipoLavado: document.getElementById('tipoLavado').value,
+          montoLavado: mLavado,
+          adicionales: adicionalesSeleccionados,
+          totalAdicionales: totalAdicionales,
+          total: mLavado + totalAdicionales,
+          metodoPago: document.getElementById('metodoPago').value,
+          notas: document.getElementById('notas').value.trim()
+        };
+
+        registros.unshift(item);
+        localStorage.setItem('lavadero_registros', JSON.stringify(registros));
+
+        document.getElementById('formRegistro').reset();
+        document.getElementById('montoLavado').value = 0;
+        document.querySelectorAll('#contenedorOpcionesAdicionales input[type="checkbox"]').forEach(c => c.checked = false);
+        actualizarInputsAdicionales();
+
+        paginaActual = 1;
+        render();
+        sincronizarConGitHub(true);
+      }
+
+      function eliminarRegistro(id) {
+        if (!confirm('¿Deseas eliminar este registro?')) return;
+        registros = registros.filter(r => r.id !== id);
+        localStorage.setItem('lavadero_registros', JSON.stringify(registros));
+
+        const totalPaginas = Math.ceil(registros.length / ITEMS_POR_PAGINA) || 1;
+        if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+
+        render();
+        sincronizarConGitHub(true);
+      }
+
+      function cambiarPagina(delta) {
+        const totalPaginas = Math.ceil(registros.length / ITEMS_POR_PAGINA) || 1;
+        paginaActual += delta;
+        if (paginaActual < 1) paginaActual = 1;
+        if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+        render();
+      }
+
+      function render() {
+        const tbodyDesktop = document.getElementById('listaTrabajosDesktop');
+        const contMovil = document.getElementById('contenedorTarjetasMovil');
+        tbodyDesktop.innerHTML = '';
+        contMovil.innerHTML = '';
+
+        // 1. Métricas Hoy
+        const hoyStr = new Date().toISOString().slice(0, 10);
+        const itemsHoy = registros.filter(r => r.fecha.slice(0, 10) === hoyStr);
+
+        let sumLavadosHoy = 0;
+        let sumAdicHoy = 0;
+
+        itemsHoy.forEach(r => {
+          sumLavadosHoy += r.montoLavado;
+          sumAdicHoy += (r.totalAdicionales || 0);
+        });
+
+        document.getElementById('totalHoy').textContent = `$${(sumLavadosHoy + sumAdicHoy).toLocaleString()}`;
+        document.getElementById('cantVehiculosHoy').textContent = itemsHoy.length;
+        document.getElementById('ingresosLavados').textContent = `$${sumLavadosHoy.toLocaleString()}`;
+        document.getElementById('ingresosAdicionales').textContent = `$${sumAdicHoy.toLocaleString()}`;
+
+        // 2. Paginación
+        const totalRegistros = registros.length;
+        const totalPaginas = Math.ceil(totalRegistros / ITEMS_POR_PAGINA) || 1;
+        if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+
+        const inicio = (paginaActual - 1) * ITEMS_POR_PAGINA;
+        const fin = inicio + ITEMS_POR_PAGINA;
+        const paginaRegistros = registros.slice(inicio, fin);
+
+        if (totalRegistros === 0) {
+          contMovil.innerHTML = `<div class="text-center py-8 text-slate-500 text-xs">No hay vehículos registrados todavía.</div>`;
+          tbodyDesktop.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-slate-500">No hay vehículos registrados todavía.</td></tr>`;
+        }
+
+        paginaRegistros.forEach(r => {
+          const fechaFormateada = new Date(r.fecha).toLocaleDateString([], { day: '2-digit', month: '2-digit' });
+          const cantAdic = r.adicionales ? r.adicionales.length : 0;
+
+          // Fragmento desplegable para detalles de adicionales
+          let listaDetalladaHtml = '';
+          if (cantAdic > 0) {
+            listaDetalladaHtml = r.adicionales.map(a => `
+              <li class="flex justify-between items-center text-xs py-1 border-b border-slate-800 last:border-0 text-slate-300">
+                <span>${a.nombre}</span>
+                <span class="font-mono text-purple-300 font-semibold">$${a.monto.toLocaleString()}</span>
+              </li>
+            `).join('');
+          }
+
+          // A) RENDER MÓVIL: TARJETA VERTICAL
+          const card = document.createElement('div');
+          card.className = 'bg-slate-900/90 border border-slate-800 p-4 rounded-2xl shadow-sm space-y-3';
+          card.innerHTML = `
+            <div class="flex items-start justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+              <div>
+                <h3 class="font-bold text-slate-100 text-base">${r.vehiculo}</h3>
+                <span class="text-[11px] text-slate-400 font-medium">${fechaFormateada} - ${r.hora} hs</span>
+              </div>
+              <div class="text-right">
+                <span class="text-base font-extrabold text-emerald-400 block">$${r.total.toLocaleString()}</span>
+                <span class="text-[10px] uppercase font-semibold text-slate-400 bg-slate-950 px-2 py-0.5 rounded-full border border-slate-800">${r.metodoPago}</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between text-slate-300">
+                <span class="text-slate-400">Lavado:</span>
+                <span class="font-medium text-sky-400 bg-sky-950/60 border border-sky-800/60 px-2 py-0.5 rounded-md">
+                  ${r.tipoLavado} ($${r.montoLavado.toLocaleString()})
+                </span>
+              </div>
+
+              ${cantAdic > 0 ? `
+                <details class="group bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+                  <summary class="flex justify-between items-center cursor-pointer text-purple-300 font-medium">
+                    <span>✦ ${cantAdic} ${cantAdic === 1 ? 'Adicional' : 'Adicionales'} ($${(r.totalAdicionales || 0).toLocaleString()})</span>
+                    <span class="text-[10px] group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <ul class="mt-2 pt-2 border-t border-slate-800 space-y-0.5">
+                    ${listaDetalladaHtml}
+                  </ul>
+                </details>
+              ` : ''}
+
+              ${r.notas ? `
+                <p class="text-[11px] text-slate-400 italic bg-slate-950/40 p-2 rounded-lg border border-slate-800/50">
+                  💬 ${r.notas}
+                </p>
+              ` : ''}
+            </div>
+
+            <div class="pt-1 flex justify-end">
+              <button
+                type="button"
+                onclick="eliminarRegistro(${r.id})"
+                class="text-rose-400 active:bg-rose-950/50 text-xs font-semibold px-3 py-1.5 rounded-lg border border-rose-900/50 transition"
+              >
+                Eliminar
+              </button>
+            </div>
+          `;
+          contMovil.appendChild(card);
+
+          // B) RENDER ESCRITORIO: FILA DE TABLA
+          let celdaAdicDesktop = '<span class="text-slate-500 text-xs">Sin adicionales</span>';
+          if (cantAdic > 0) {
+            celdaAdicDesktop = `
+              <details class="group cursor-pointer">
+                <summary class="inline-flex items-center gap-1.5 bg-purple-950/70 hover:bg-purple-900 text-purple-300 border border-purple-800/80 px-2 py-1 rounded-lg text-xs transition">
+                  <span>✦ ${cantAdic} (${(r.totalAdicionales || 0).toLocaleString()})</span>
+                  <span class="text-[10px] group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <ul class="mt-2 p-2 bg-slate-950/95 rounded-lg border border-slate-700 text-xs shadow-xl min-w-[210px] max-w-xs space-y-1">
+                  ${listaDetalladaHtml}
+                </ul>
+              </details>
+            `;
+          }
+
+          const row = document.createElement('tr');
+          row.className = 'hover:bg-slate-800/40 transition';
+          row.innerHTML = `
+            <td class="py-3 px-4 text-slate-400 whitespace-nowrap">
+              <span class="font-medium text-slate-300">${r.hora}</span>
+              <span class="block text-[11px] text-slate-500">${fechaFormateada}</span>
+            </td>
+            <td class="py-3 px-4 font-semibold text-slate-100">${r.vehiculo}</td>
+            <td class="py-3 px-4">
+              <span class="inline-block bg-sky-950/80 text-sky-400 border border-sky-800/80 px-2 py-0.5 rounded text-xs whitespace-nowrap">
+                ${r.tipoLavado}: $${r.montoLavado.toLocaleString()}
+              </span>
+            </td>
+            <td class="py-3 px-4">${celdaAdicDesktop}</td>
+            <td class="py-3 px-4 font-bold text-emerald-400 whitespace-nowrap">$${r.total.toLocaleString()}</td>
+            <td class="py-3 px-4 text-slate-400 whitespace-nowrap">${r.metodoPago}</td>
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              <button
+                type="button"
+                onclick="eliminarRegistro(${r.id})"
+                class="text-rose-400 hover:text-rose-300 text-xs font-semibold px-2 py-1 rounded hover:bg-rose-950/40 transition"
+              >
+                Eliminar
+              </button>
+            </td>
+          `;
+          tbodyDesktop.appendChild(row);
+        });
+
+        // Controles de Paginación
+        document.getElementById('infoPagina').textContent = `Pág. ${paginaActual} de ${totalPaginas}`;
+        document.getElementById('infoPaginaHeader').textContent = `${totalRegistros} servicios en total`;
+        document.getElementById('btnAnt').disabled = (paginaActual <= 1);
+        document.getElementById('btnSig').disabled = (paginaActual >= totalPaginas);
+      }
+
+      window.onload = init;
+    </script>
+  </body>
+</html>
