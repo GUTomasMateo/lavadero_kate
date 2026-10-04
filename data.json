@@ -1,5 +1,18 @@
 [
   {
+    "id": 1791075373075,
+    "fecha": "2026-10-04T00:56:13.075Z",
+    "hora": "09:56 p.m.",
+    "vehiculo": "508 - AA833FB",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 15000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 15000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1791075287528,
     "fecha": "2026-10-04T00:54:47.528Z",
     "hora": "09:54 p.m.",
