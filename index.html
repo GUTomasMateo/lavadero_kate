@@ -25,7 +25,7 @@
           onclick="toggleConfig()"
           class="shrink-0 text-xs bg-slate-900 active:bg-slate-800 text-slate-300 px-3 py-2.5 rounded-xl border border-slate-700/80 transition"
         >
-          ⚙️ GitHub
+          ⚙️️ GitHub
         </button>
       </header>
 
@@ -64,23 +64,44 @@
         </div>
       </div>
 
-      <!-- Resumen Métricas -->
-      <section class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-5">
-        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Total Hoy</span>
-          <p id="totalHoy" class="text-lg sm:text-xl font-bold text-emerald-400 mt-0.5">$0</p>
+      <!-- Resumen Métricas Generales / Totales Históricos -->
+      <section class="space-y-2.5 mb-5">
+        <!-- Bloque Total Histórico Acumulado -->
+        <div class="bg-gradient-to-r from-sky-950/70 to-indigo-950/60 border border-sky-800/60 p-4 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider text-sky-300 font-bold">💰 Facturación Total Histórica</span>
+            <p id="granTotalAcumulado" class="text-2xl sm:text-3xl font-extrabold text-sky-300 mt-0.5">$0</p>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-slate-300">
+            <div>
+              <span class="text-slate-400 block text-[11px]">Vehículos Totales:</span>
+              <span id="cantTotalVehiculos" class="font-bold text-slate-100 text-sm">0</span>
+            </div>
+            <div class="border-l border-slate-700 pl-4">
+              <span class="text-slate-400 block text-[11px]">En Adicionales Totales:</span>
+              <span id="totalHistoricoAdicionales" class="font-bold text-purple-300 text-sm">$0</span>
+            </div>
+          </div>
         </div>
-        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Vehículos Hoy</span>
-          <p id="cantVehiculosHoy" class="text-lg sm:text-xl font-bold text-sky-400 mt-0.5">0</p>
-        </div>
-        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Lavados Hoy</span>
-          <p id="ingresosLavados" class="text-base sm:text-lg font-semibold text-slate-200 mt-0.5">$0</p>
-        </div>
-        <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Adicionales Hoy</span>
-          <p id="ingresosAdicionales" class="text-base sm:text-lg font-semibold text-slate-200 mt-0.5">$0</p>
+
+        <!-- Bloque Métricas del Día -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Total Hoy</span>
+            <p id="totalHoy" class="text-lg sm:text-xl font-bold text-emerald-400 mt-0.5">$0</p>
+          </div>
+          <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Vehículos Hoy</span>
+            <p id="cantVehiculosHoy" class="text-lg sm:text-xl font-bold text-sky-400 mt-0.5">0</p>
+          </div>
+          <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Lavados Hoy</span>
+            <p id="ingresosLavados" class="text-base sm:text-lg font-semibold text-slate-200 mt-0.5">$0</p>
+          </div>
+          <div class="bg-slate-900/90 border border-slate-800/80 p-3 sm:p-4 rounded-xl">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Adicionales Hoy</span>
+            <p id="ingresosAdicionales" class="text-base sm:text-lg font-semibold text-slate-200 mt-0.5">$0</p>
+          </div>
         </div>
       </section>
 
@@ -256,7 +277,6 @@
       let fileSha = null;
       let cargaRemotaCompletada = false;
 
-      // Recuperación preventiva inmediata del storage local
       try {
         registros = JSON.parse(localStorage.getItem('lavadero_registros')) || [];
       } catch (e) {
@@ -266,8 +286,8 @@
       async function init() {
         generarCheckboxesAdicionales();
         cargarConfig();
-        render(); // Render inicial rápido con lo local
-        await sincronizarDesdeGitHub(); // Asegurar datos frescos
+        render();
+        await sincronizarDesdeGitHub();
       }
 
       function generarCheckboxesAdicionales() {
@@ -348,7 +368,6 @@
         sincronizarDesdeGitHub();
       }
 
-      // Descarga obligatoria antes de permitir cualquier escritura
       async function sincronizarDesdeGitHub() {
         const user = localStorage.getItem('gh_user');
         const repo = localStorage.getItem('gh_repo');
@@ -379,7 +398,6 @@
             fileSha = data.sha;
             const remotos = JSON.parse(decodeURIComponent(escape(atob(data.content)))) || [];
 
-            // Fusión segura: respetamos lo que haya en la nube
             const mapa = new Map();
             remotos.forEach(item => mapa.set(item.id, item));
             registros.forEach(item => mapa.set(item.id, item));
@@ -392,7 +410,6 @@
             status.className = 'text-[11px] text-emerald-400';
             render();
           } else if (res.status === 404) {
-            // Si el archivo no existe aún, se inicializa sin peligro
             fileSha = null;
             cargaRemotaCompletada = true;
             status.textContent = '● Conectado (Archivo nuevo)';
@@ -413,7 +430,6 @@
 
         if (!user || !repo || !token) return;
 
-        // Protección anti-vaciado
         if (registros.length === 0) {
           console.warn('Protección activada: no se envía lista vacía.');
           return;
@@ -423,7 +439,6 @@
         status.className = 'text-[11px] text-sky-400';
 
         try {
-          // Traer siempre el último SHA antes de hacer commit para no pisar nada
           const headRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/data.json?_t=${Date.now()}`, {
             headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' }
           });
@@ -431,7 +446,6 @@
           if (headRes.status === 200) {
             const headData = await headRes.json();
             fileSha = headData.sha;
-            // Re-fusionar en caliente por si se cargó algo desde otro lado
             const remotos = JSON.parse(decodeURIComponent(escape(atob(headData.content)))) || [];
             const mapa = new Map();
             remotos.forEach(item => mapa.set(item.id, item));
@@ -542,7 +556,19 @@
         tbodyDesktop.innerHTML = '';
         contMovil.innerHTML = '';
 
-        // Métricas Hoy (calculadas en horario local)
+        // 1. Cálculo de Métricas Históricas Totales (Acumulado completo)
+        let granTotalHistorico = 0;
+        let granTotalAdicionales = 0;
+        registros.forEach(r => {
+          granTotalHistorico += (r.total || 0);
+          granTotalAdicionales += (r.totalAdicionales || 0);
+        });
+
+        document.getElementById('granTotalAcumulado').textContent = `$${granTotalHistorico.toLocaleString()}`;
+        document.getElementById('cantTotalVehiculos').textContent = registros.length;
+        document.getElementById('totalHistoricoAdicionales').textContent = `$${granTotalAdicionales.toLocaleString()}`;
+
+        // 2. Métricas del Día (Horario local)
         const hoyLocal = new Date().toLocaleDateString('en-CA');
         const itemsHoy = registros.filter(r => {
           const itemFechaLocal = new Date(r.fecha).toLocaleDateString('en-CA');
@@ -562,7 +588,7 @@
         document.getElementById('ingresosLavados').textContent = `$${sumLavadosHoy.toLocaleString()}`;
         document.getElementById('ingresosAdicionales').textContent = `$${sumAdicHoy.toLocaleString()}`;
 
-        // Paginación
+        // 3. Paginación
         const totalRegistros = registros.length;
         const totalPaginas = Math.ceil(totalRegistros / ITEMS_POR_PAGINA) || 1;
         if (paginaActual > totalPaginas) paginaActual = totalPaginas;
