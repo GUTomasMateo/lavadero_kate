@@ -1,5 +1,18 @@
 [
   {
+    "id": 1791161644892,
+    "fecha": "2026-10-05T00:54:04.892Z",
+    "hora": "09:54 p. m.",
+    "vehiculo": "jhfjfjh",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 30000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 30000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1791161313176,
     "fecha": "2026-10-05T00:48:33.176Z",
     "hora": "21:48",
