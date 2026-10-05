@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": 1791161313176,
+    "fecha": "2026-10-05T00:48:33.176Z",
+    "hora": "21:48",
+    "vehiculo": "Hwhwhshs",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 30000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      }
+    ],
+    "totalAdicionales": 5000,
+    "total": 35000,
+    "metodoPago": "Efectivo",
+    "notas": "Ninguno"
+  }
+]
