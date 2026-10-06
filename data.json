@@ -1,5 +1,18 @@
 [
   {
+    "id": 1791310782162,
+    "fecha": "2026-10-06T18:19:42.162Z",
+    "hora": "03:19 p.m.",
+    "vehiculo": "UP - AD313MP",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 15000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 15000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1791310708859,
     "fecha": "2026-10-06T18:18:28.859Z",
     "hora": "03:18 p.m.",
