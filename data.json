@@ -1,5 +1,23 @@
 [
   {
+    "id": 1791401482469,
+    "fecha": "2026-10-07T19:31:22.469Z",
+    "hora": "04:31 p.m.",
+    "vehiculo": "SANDERO - AG061CG",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 18000,
+    "adicionales": [
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 6000,
+    "total": 24000,
+    "metodoPago": "Transferencia",
+    "notas": "Rashiv"
+  },
+  {
     "id": 1791310782162,
     "fecha": "2026-10-06T18:19:42.162Z",
     "hora": "03:19 p.m.",
