@@ -1,5 +1,27 @@
 [
   {
+    "id": 1791412579597,
+    "fecha": "2026-10-07T22:36:19.597Z",
+    "hora": "07:36 p.m.",
+    "vehiculo": "POLO - AI231IW",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 9000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      },
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 11000,
+    "total": 20000,
+    "metodoPago": "Transferencia",
+    "notas": "-15.000 compre peneu pretiño"
+  },
+  {
     "id": 1791401482469,
     "fecha": "2026-10-07T19:31:22.469Z",
     "hora": "04:31 p.m.",
