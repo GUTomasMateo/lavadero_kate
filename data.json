@@ -1,5 +1,27 @@
 [
   {
+    "id": 1791672780966,
+    "fecha": "2026-10-10T22:53:00.966Z",
+    "hora": "07:53 p.m.",
+    "vehiculo": "ONIX - OUQ410",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 24000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      },
+      {
+        "nombre": "Encerado en pasta soft 99",
+        "monto": 25000
+      }
+    ],
+    "totalAdicionales": 30000,
+    "total": 54000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1791585734257,
     "fecha": "2026-10-09T22:42:14.256Z",
     "hora": "07:42 p.m.",
