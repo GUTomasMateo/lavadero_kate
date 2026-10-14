@@ -1,5 +1,18 @@
 [
   {
+    "id": 1792020563063,
+    "fecha": "2026-10-14T23:29:23.063Z",
+    "hora": "08:29 p.m.",
+    "vehiculo": "S10 - AH477MY",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 22000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 22000,
+    "metodoPago": "Efectivo",
+    "notas": "-2000"
+  },
+  {
     "id": 1791672780966,
     "fecha": "2026-10-10T22:53:00.966Z",
     "hora": "07:53 p.m.",
