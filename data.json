@@ -1,5 +1,23 @@
 [
   {
+    "id": 1792102912959,
+    "fecha": "2026-10-15T22:21:52.959Z",
+    "hora": "07:21 p.m.",
+    "vehiculo": "C250 - MMU198",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 24000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      }
+    ],
+    "totalAdicionales": 5000,
+    "total": 29000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1792102873956,
     "fecha": "2026-10-15T22:21:13.956Z",
     "hora": "07:21 p.m.",
