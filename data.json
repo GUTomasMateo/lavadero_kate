@@ -1,5 +1,18 @@
 [
   {
+    "id": 1792286202988,
+    "fecha": "2026-10-18T01:16:42.988Z",
+    "hora": "10:16 p.m.",
+    "vehiculo": "C3 AIRCROSS - AH862QI",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 30000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 30000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1792286151469,
     "fecha": "2026-10-18T01:15:51.469Z",
     "hora": "10:15 p.m.",
