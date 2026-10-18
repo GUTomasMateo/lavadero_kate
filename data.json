@@ -1,5 +1,18 @@
 [
   {
+    "id": 1792286353653,
+    "fecha": "2026-10-18T01:19:13.653Z",
+    "hora": "10:19 p.m.",
+    "vehiculo": "TAOS - AG673VZ",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 30000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 30000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1792286302356,
     "fecha": "2026-10-18T01:18:22.356Z",
     "hora": "10:18 p.m.",
