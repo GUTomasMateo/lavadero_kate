@@ -1,5 +1,23 @@
 [
   {
+    "id": 1792445723083,
+    "fecha": "2026-10-19T21:35:23.083Z",
+    "hora": "06:35 p.m.",
+    "vehiculo": "HILUX GR - AG767EH",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 36000,
+    "adicionales": [
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 6000,
+    "total": 42000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1792445668826,
     "fecha": "2026-10-19T21:34:28.826Z",
     "hora": "06:34 p.m.",
