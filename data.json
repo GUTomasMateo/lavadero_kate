@@ -1,5 +1,27 @@
 [
   {
+    "id": 1792445668826,
+    "fecha": "2026-10-19T21:34:28.826Z",
+    "hora": "06:34 p.m.",
+    "vehiculo": "MOTO MARQUITOS",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 15000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 2000
+      },
+      {
+        "nombre": "Encerado en pasta soft 99",
+        "monto": 8000
+      }
+    ],
+    "totalAdicionales": 10000,
+    "total": 25000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1792286353653,
     "fecha": "2026-10-18T01:19:13.653Z",
     "hora": "10:19 p.m.",
