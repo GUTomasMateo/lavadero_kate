@@ -119,24 +119,6 @@
     "notas": ""
   },
   {
-    "id": 1792102873956,
-    "fecha": "2026-10-15T22:21:13.956Z",
-    "hora": "07:21 p.m.",
-    "vehiculo": "Amarok V6 - AE244RX",
-    "tipoLavado": "Lavado Premium / Detailing",
-    "montoLavado": 25000,
-    "adicionales": [
-      {
-        "nombre": "Sellado de cubiertas",
-        "monto": 5000
-      }
-    ],
-    "totalAdicionales": 5000,
-    "total": 30000,
-    "metodoPago": "Transferencia",
-    "notas": ""
-  },
-  {
     "id": 1792095255368,
     "fecha": "2026-10-15T20:14:15.368Z",
     "hora": "05:14 p.m.",
