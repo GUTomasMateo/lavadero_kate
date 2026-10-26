@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793055755509,
+    "fecha": "2026-10-26T23:02:35.509Z",
+    "hora": "08:02 p.m.",
+    "vehiculo": "208 - AC771SF",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 24000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 24000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793055714981,
     "fecha": "2026-10-26T23:01:54.981Z",
     "hora": "08:01 p.m.",
