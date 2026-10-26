@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793055665220,
+    "fecha": "2026-10-26T23:01:05.220Z",
+    "hora": "08:01 p.m.",
+    "vehiculo": "FIESTA - AA626XK",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 24000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 24000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1792445723083,
     "fecha": "2026-10-19T21:35:23.083Z",
     "hora": "06:35 p.m.",
