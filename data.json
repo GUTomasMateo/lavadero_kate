@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793137702919,
+    "fecha": "2026-10-27T21:48:22.919Z",
+    "hora": "06:48 p.m.",
+    "vehiculo": "S10 - AB393KX",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 36000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 4000
+      }
+    ],
+    "totalAdicionales": 4000,
+    "total": 40000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793128657524,
     "fecha": "2026-10-27T19:17:37.524Z",
     "hora": "04:17 p.m.",
