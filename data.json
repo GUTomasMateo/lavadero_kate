@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793122628734,
+    "fecha": "2026-10-27T17:37:08.734Z",
+    "hora": "02:37 p.m.",
+    "vehiculo": "T-CROSS - AE533OL",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 30000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      }
+    ],
+    "totalAdicionales": 5000,
+    "total": 35000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793122576844,
     "fecha": "2026-10-27T17:36:16.844Z",
     "hora": "02:36 p.m.",
