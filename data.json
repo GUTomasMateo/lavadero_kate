@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793128657524,
+    "fecha": "2026-10-27T19:17:37.524Z",
+    "hora": "04:17 p.m.",
+    "vehiculo": "GOLF CHACHO",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 15000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 15000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793122628734,
     "fecha": "2026-10-27T17:37:08.734Z",
     "hora": "02:37 p.m.",
