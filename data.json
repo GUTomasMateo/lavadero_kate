@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793228074480,
+    "fecha": "2026-10-28T22:54:34.480Z",
+    "hora": "07:54 p.m.",
+    "vehiculo": "CRUZE - AE856YS",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 24000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 24000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793228046801,
     "fecha": "2026-10-28T22:54:06.801Z",
     "hora": "07:54 p.m.",
