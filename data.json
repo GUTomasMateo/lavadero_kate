@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793228106089,
+    "fecha": "2026-10-28T22:55:06.089Z",
+    "hora": "07:55 p.m.",
+    "vehiculo": "UP - ORR126",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 24000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 24000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793228074480,
     "fecha": "2026-10-28T22:54:34.480Z",
     "hora": "07:54 p.m.",
