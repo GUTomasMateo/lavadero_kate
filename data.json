@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793401558311,
+    "fecha": "2026-10-30T23:05:58.311Z",
+    "hora": "08:05 p.m.",
+    "vehiculo": "COMPASS - AE343MN",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 30000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      }
+    ],
+    "totalAdicionales": 5000,
+    "total": 35000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793401486838,
     "fecha": "2026-10-30T23:04:46.838Z",
     "hora": "08:04 p.m.",
