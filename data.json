@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793401486838,
+    "fecha": "2026-10-30T23:04:46.838Z",
+    "hora": "08:04 p.m.",
+    "vehiculo": "DUSTER OBRERO",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 18000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 18000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793401413229,
     "fecha": "2026-10-30T23:03:33.229Z",
     "hora": "08:03 p.m.",
