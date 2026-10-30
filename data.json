@@ -1,5 +1,27 @@
 [
   {
+    "id": 1793401267309,
+    "fecha": "2026-10-30T23:01:07.309Z",
+    "hora": "08:01 p.m.",
+    "vehiculo": "COMPASS - AI401NX",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 30000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      },
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 8000
+      }
+    ],
+    "totalAdicionales": 13000,
+    "total": 43000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793401198839,
     "fecha": "2026-10-30T22:59:58.839Z",
     "hora": "07:59 p.m.",
