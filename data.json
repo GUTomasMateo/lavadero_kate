@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793401413229,
+    "fecha": "2026-10-30T23:03:33.229Z",
+    "hora": "08:03 p.m.",
+    "vehiculo": "ROUSER NS160",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 15000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 15000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793401342450,
     "fecha": "2026-10-30T23:02:22.450Z",
     "hora": "08:02 p.m.",
