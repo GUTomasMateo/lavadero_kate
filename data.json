@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793401198839,
+    "fecha": "2026-10-30T22:59:58.839Z",
+    "hora": "07:59 p.m.",
+    "vehiculo": "FASTBACK - AH477MB",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 18000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 18000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793281143656,
     "fecha": "2026-10-29T13:39:03.656Z",
     "hora": "10:39 a.m.",
