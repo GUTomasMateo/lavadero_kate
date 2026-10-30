@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793401812499,
+    "fecha": "2026-10-30T23:10:12.499Z",
+    "hora": "08:10 p.m.",
+    "vehiculo": "C250 - AB924BG",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 15000,
+    "adicionales": [
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 6000,
+    "total": 21000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793401558311,
     "fecha": "2026-10-30T23:05:58.311Z",
     "hora": "08:05 p.m.",
