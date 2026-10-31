@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793477969984,
+    "fecha": "2026-10-31T20:19:29.984Z",
+    "hora": "05:19 p.m.",
+    "vehiculo": "FOCUS - AC944DL",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 24000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 24000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793401812499,
     "fecha": "2026-10-30T23:10:12.499Z",
     "hora": "08:10 p.m.",
