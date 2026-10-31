@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793481372934,
+    "fecha": "2026-10-31T21:16:12.934Z",
+    "hora": "06:16 p.m.",
+    "vehiculo": "TIGGO7PRO - AI458QD",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 20000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 20000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793481322381,
     "fecha": "2026-10-31T21:15:22.381Z",
     "hora": "06:15 p.m.",
