@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793486218118,
+    "fecha": "2026-10-31T22:36:58.118Z",
+    "hora": "07:36 p.m.",
+    "vehiculo": "YARIS - AF860JL",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 26000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      }
+    ],
+    "totalAdicionales": 5000,
+    "total": 31000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793481372934,
     "fecha": "2026-10-31T21:16:12.934Z",
     "hora": "06:16 p.m.",
