@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793481322381,
+    "fecha": "2026-10-31T21:15:22.381Z",
+    "hora": "06:15 p.m.",
+    "vehiculo": "HILUX - AD974HM",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 38000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 38000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793477969984,
     "fecha": "2026-10-31T20:19:29.984Z",
     "hora": "05:19 p.m.",
