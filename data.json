@@ -1,5 +1,35 @@
 [
   {
+    "id": 1793537408244,
+    "fecha": "2026-11-01T12:50:08.244Z",
+    "hora": "09:50 a.m.",
+    "vehiculo": "CRONOS - AG044GY",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 17000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 0
+      },
+      {
+        "nombre": "Sellado de parabrisas",
+        "monto": 10000
+      },
+      {
+        "nombre": "Encerado en pasta soft 99",
+        "monto": 25000
+      },
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 41000,
+    "total": 58000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793486218118,
     "fecha": "2026-10-31T22:36:58.118Z",
     "hora": "07:36 p.m.",
