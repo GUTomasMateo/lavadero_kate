@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793741424036,
+    "fecha": "2026-11-03T21:30:24.035Z",
+    "hora": "06:30 p.m.",
+    "vehiculo": "408 - OPS301",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 35000,
+    "adicionales": [
+      {
+        "nombre": "Pulido de opticas",
+        "monto": 40000
+      }
+    ],
+    "totalAdicionales": 40000,
+    "total": 75000,
+    "metodoPago": "Efectivo",
+    "notas": "$50.000 en efectivo + $25.000 en transfe"
+  },
+  {
     "id": 1793537408244,
     "fecha": "2026-11-01T12:50:08.244Z",
     "hora": "09:50 a.m.",
