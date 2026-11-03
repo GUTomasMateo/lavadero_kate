@@ -1,5 +1,18 @@
 [
   {
+    "id": 1793741664390,
+    "fecha": "2026-11-03T21:34:24.390Z",
+    "hora": "06:34 p.m.",
+    "vehiculo": "CRUZE - AF465EZ",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 17000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 17000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793741424036,
     "fecha": "2026-11-03T21:30:24.035Z",
     "hora": "06:30 p.m.",
