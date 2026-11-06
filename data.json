@@ -1,5 +1,23 @@
 [
   {
+    "id": 1793985009905,
+    "fecha": "2026-11-06T17:10:09.905Z",
+    "hora": "02:10 p.m.",
+    "vehiculo": "JAC MIGUE",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 20000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de parabrisas",
+        "monto": 10000
+      }
+    ],
+    "totalAdicionales": 10000,
+    "total": 30000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1793984980474,
     "fecha": "2026-11-06T17:09:40.474Z",
     "hora": "02:09 p.m.",
