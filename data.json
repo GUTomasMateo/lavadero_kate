@@ -1,5 +1,27 @@
 [
   {
+    "id": 1793984980474,
+    "fecha": "2026-11-06T17:09:40.474Z",
+    "hora": "02:09 p.m.",
+    "vehiculo": "TIGGO4PRO - AF465EK",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 32000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      },
+      {
+        "nombre": "Encerado en pasta soft 99",
+        "monto": 25000
+      }
+    ],
+    "totalAdicionales": 30000,
+    "total": 62000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793753746639,
     "fecha": "2026-11-04T00:55:46.639Z",
     "hora": "09:55 p.m.",
