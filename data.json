@@ -1,5 +1,18 @@
 [
   {
+    "id": 1794513864885,
+    "fecha": "2026-11-12T20:04:24.885Z",
+    "hora": "05:04 p.m.",
+    "vehiculo": "YARIS - AE480HY",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 26000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 26000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1794513371600,
     "fecha": "2026-11-12T19:56:11.600Z",
     "hora": "04:56 p.m.",
