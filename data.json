@@ -1,5 +1,18 @@
 [
   {
+    "id": 1794513371600,
+    "fecha": "2026-11-12T19:56:11.600Z",
+    "hora": "04:56 p.m.",
+    "vehiculo": "BMW X3 - MQP599",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 20000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 20000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1793985009905,
     "fecha": "2026-11-06T17:10:09.905Z",
     "hora": "02:10 p.m.",
