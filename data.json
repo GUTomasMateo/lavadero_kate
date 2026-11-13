@@ -1,5 +1,27 @@
 [
   {
+    "id": 1794592852072,
+    "fecha": "2026-11-13T18:00:52.072Z",
+    "hora": "03:00 p.m.",
+    "vehiculo": "COROLLA - AE809OL",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 26000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      },
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 11000,
+    "total": 37000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1794513864885,
     "fecha": "2026-11-12T20:04:24.885Z",
     "hora": "05:04 p.m.",
