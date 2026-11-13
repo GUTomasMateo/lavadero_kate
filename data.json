@@ -1,5 +1,27 @@
 [
   {
+    "id": 1794593191584,
+    "fecha": "2026-11-13T18:06:31.584Z",
+    "hora": "03:06 p.m.",
+    "vehiculo": "HRV - PMG753",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 32000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 5000
+      },
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 11000,
+    "total": 43000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1794593037463,
     "fecha": "2026-11-13T18:03:57.463Z",
     "hora": "03:03 p.m.",
