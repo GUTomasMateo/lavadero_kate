@@ -1,5 +1,18 @@
 [
   {
+    "id": 1794593037463,
+    "fecha": "2026-11-13T18:03:57.463Z",
+    "hora": "03:03 p.m.",
+    "vehiculo": "MOBI - AB225AV",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 17000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 17000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1794592965271,
     "fecha": "2026-11-13T18:02:45.271Z",
     "hora": "03:02 p.m.",
