@@ -1,5 +1,18 @@
 [
   {
+    "id": 1794592965271,
+    "fecha": "2026-11-13T18:02:45.271Z",
+    "hora": "03:02 p.m.",
+    "vehiculo": "ONIX - OUQ410",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 17000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 17000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1794592852072,
     "fecha": "2026-11-13T18:00:52.072Z",
     "hora": "03:00 p.m.",
