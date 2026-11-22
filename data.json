@@ -1,5 +1,18 @@
 [
   {
+    "id": 1795377756250,
+    "fecha": "2026-11-22T20:02:36.250Z",
+    "hora": "05:02 p.m.",
+    "vehiculo": "TRACKER RS",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 32000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 32000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1795377625773,
     "fecha": "2026-11-22T20:00:25.773Z",
     "hora": "05:00 p.m.",
