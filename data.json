@@ -1,5 +1,18 @@
 [
   {
+    "id": 1795378085845,
+    "fecha": "2026-11-22T20:08:05.845Z",
+    "hora": "05:08 p.m.",
+    "vehiculo": "CRONOS - AF270MC",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 26000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 26000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1795377911742,
     "fecha": "2026-11-22T20:05:11.742Z",
     "hora": "05:05 p.m.",
