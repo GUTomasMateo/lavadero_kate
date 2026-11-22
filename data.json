@@ -1,5 +1,23 @@
 [
   {
+    "id": 1795377911742,
+    "fecha": "2026-11-22T20:05:11.742Z",
+    "hora": "05:05 p.m.",
+    "vehiculo": "C250 - MMU198",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 26000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de cubiertas",
+        "monto": 0
+      }
+    ],
+    "totalAdicionales": 0,
+    "total": 26000,
+    "metodoPago": "Transferencia",
+    "notas": ""
+  },
+  {
     "id": 1795377819806,
     "fecha": "2026-11-22T20:03:39.806Z",
     "hora": "05:03 p.m.",
