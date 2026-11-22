@@ -1,5 +1,23 @@
 [
   {
+    "id": 1795378319232,
+    "fecha": "2026-11-22T20:11:59.232Z",
+    "hora": "05:11 p.m.",
+    "vehiculo": "ETIOS - AE916FU",
+    "tipoLavado": "Lavado Premium / Detailing",
+    "montoLavado": 26000,
+    "adicionales": [
+      {
+        "nombre": "Servicio de busqueda",
+        "monto": 6000
+      }
+    ],
+    "totalAdicionales": 6000,
+    "total": 32000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1795378085845,
     "fecha": "2026-11-22T20:08:05.845Z",
     "hora": "05:08 p.m.",
