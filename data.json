@@ -1,5 +1,23 @@
 [
   {
+    "id": 1795443158548,
+    "fecha": "2026-11-23T14:12:38.548Z",
+    "hora": "11:12 a.m.",
+    "vehiculo": "MOBY - AB225AV",
+    "tipoLavado": "Lavado Express",
+    "montoLavado": 17000,
+    "adicionales": [
+      {
+        "nombre": "Sellado de parabrisas",
+        "monto": 15000
+      }
+    ],
+    "totalAdicionales": 15000,
+    "total": 32000,
+    "metodoPago": "Efectivo",
+    "notas": ""
+  },
+  {
     "id": 1795378355899,
     "fecha": "2026-11-22T20:12:35.899Z",
     "hora": "05:12 p.m.",
