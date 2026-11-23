@@ -1,5 +1,18 @@
 [
   {
+    "id": 1795443237455,
+    "fecha": "2026-11-23T14:13:57.455Z",
+    "hora": "11:13 a.m.",
+    "vehiculo": "PARTNER INTERIOR",
+    "tipoLavado": "Sin Lavado",
+    "montoLavado": 10000,
+    "adicionales": [],
+    "totalAdicionales": 0,
+    "total": 10000,
+    "metodoPago": "Efectivo",
+    "notas": "Aspirado"
+  },
+  {
     "id": 1795443158548,
     "fecha": "2026-11-23T14:12:38.548Z",
     "hora": "11:12 a.m.",
